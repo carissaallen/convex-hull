@@ -10,6 +10,7 @@ Implement several convex hull algorithms, which will include:
 * Graham's scan
 * Divide-and-conquer
 * Prune-and-search
+
 Compare the performance of each algorithm implemented, and create some visual representation of the algorithms/performance 
 
 ## Run
