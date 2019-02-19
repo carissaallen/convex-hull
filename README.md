@@ -13,9 +13,49 @@ Implement several convex hull algorithms, which will include:
 
 Compare the performance of each algorithm implemented, and create some visual representation of the algorithms/performance 
 
-## Run
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things were needed to set up the development environment and how to install them.
+_Note: installation instructions based on macOS Mojave_
+
+* Python 3.7.2
+* pip 
+* matplotlib
+
+Install [pip](https://pip.pypa.io/en/stable/installing/):
+```
+curl https://bootstrap.pypa.io/gpython get-pip.pyet-pip.py -o get-pip.py
+python get-pip.py
+```
+Install [matplotlib](https://matplotlib.org/api/pyplot_api.html#module-matplotlib.pyplot):
+```
+pip install matplotlib
+``` 
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system.
 
 ## Built With
 
-## Tip of my hat to...
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
+## Authors
+
+* **Carissa Allen** - *Initial work* - [Convex Hull](https://github.com/carissaallen/convex-hull)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
