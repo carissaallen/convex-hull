@@ -29,8 +29,11 @@ _Note: installation instructions based on macOS Mojave_
 Install [pip](https://pip.pypa.io/en/stable/installing/):
 ```
 curl https://bootstrap.pypa.io/gpython get-pip.pyet-pip.py -o get-pip.py
+```
+```
 python get-pip.py
 ```
+
 Install [matplotlib](https://matplotlib.org/api/pyplot_api.html#module-matplotlib.pyplot):
 ```
 pip install matplotlib
