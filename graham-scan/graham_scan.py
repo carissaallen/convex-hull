@@ -27,12 +27,17 @@ def quicksort(set_of_points):
     if len(set_of_points) <= 1:
         return set_of_points
     smaller, equal, larger = [], [], []
-    pivot_angle = polar_angle(set_of_points[randint(0, len(set_of_points) - 1)]) # select random pivot
+    pivot_angle = polar_angle(
+        set_of_points[randint(0, len(set_of_points) - 1)]
+    )  # select random pivot
     for p in set_of_points:
-        angle = polar_angle(p) # calculate current angle
-        if angle < pivot_angle: smaller.append(p)
-        elif angle == pivot_angle: equal.append(p)
-        else: larger.append(p)
+        angle = polar_angle(p)  # calculate current angle
+        if angle < pivot_angle:
+            smaller.append(p)
+        elif angle == pivot_angle:
+            equal.append(p)
+        else:
+            larger.append(p)
     return quicksort(smaller) + sorted(equal, key=distance) + quicksort(larger)
 
 
@@ -86,7 +91,7 @@ def graham_scan(points, show_hull_construction=False):
     hull = [anchor, sorted_points[0]]
     for s in sorted_points[1:]:
         while rotation(hull[-2], hull[-1], s) <= 0:
-            del hull[-1] # backtrack
+            del hull[-1]  # backtrack
         hull.append(s)
         if show_hull_construction:
             scatter_plot(points, hull)
