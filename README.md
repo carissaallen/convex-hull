@@ -59,6 +59,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+* Hat tip to...
+    * Brian Faure for creating a [tutorial](https://steemit.com/python/@bfaure/graham-scan-algorithm-background-and-python-code) for Graham's Scan, which was used to learn about `matplotlib` to create the visual representation of the convex hull, and for some implementation details.
 * Inspiration
 * etc
