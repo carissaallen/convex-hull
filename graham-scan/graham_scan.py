@@ -102,6 +102,11 @@ def graham_scan(points, show_hull_construction=False):
     return hull
 
 
+def show_hull(hull):
+    for point in hull:
+        print(point)
+
+
 def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
     """Created as a performance metric."""
     for s in sizes:
@@ -116,9 +121,13 @@ def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
 
 def main():
     set_of_points = seed(100)
-    print("Points:", set_of_points)
+    print("Points:")
+    print(set_of_points); print()
+
     hull = graham_scan(set_of_points, False)
-    print("Hull:", hull)
+    print("Convex Hull:")
+    show_hull(hull)
+
     scatter_plot(set_of_points, hull)
 
 
