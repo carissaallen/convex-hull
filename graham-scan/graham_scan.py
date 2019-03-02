@@ -19,7 +19,11 @@ from random import randint
 from math import atan2
 from time import time
 
-from scatter_plot import scatter_plot, seed
+# adds higher directory to python modules path
+import sys
+sys.path.append("..")
+
+from shared.scatter_plot import scatter_plot, seed
 
 
 def quicksort(set_of_points):
