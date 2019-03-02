@@ -16,7 +16,7 @@ def display_scatter_plot():
 
 def scatter_plot(coordinates, convex_hull=None):
     """Given a list of (x,y) coordinates, creates a scatter plot.
-    The convex_hull is the lsit of (x,y) coordinates that make up the convex hull."""
+    The convex_hull is the list of (x,y) coordinates that make up the convex hull."""
     xs, ys = zip(*coordinates)  # zip(*iterables): unzips into x and y coordinate lists
     plot.scatter(xs, ys)
 
