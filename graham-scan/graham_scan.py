@@ -18,24 +18,22 @@ from matplotlib import pyplot as plot
 from random import randint
 from math import atan2
 from time import time
-
-# adds higher directory to python modules path
 import sys
 
+# adds higher directory to python modules path
 sys.path.append("..")
-
 from shared.scatter_plot import scatter_plot, seed
 
 
-def quicksort(set_of_points):
+def quicksort(points):
     """Sorts the set of points in order of increasing polar angle from the anchor point."""
-    if len(set_of_points) <= 1:
-        return set_of_points
+    if len(points) <= 1:
+        return points
     smaller, equal, larger = [], [], []
     pivot_angle = polar_angle(
-        set_of_points[randint(0, len(set_of_points) - 1)]
+        points[randint(0, len(points) - 1)]
     )  # select random pivot
-    for p in set_of_points:
+    for p in points:
         angle = polar_angle(p)  # calculate current angle
         if angle < pivot_angle:
             smaller.append(p)
@@ -103,7 +101,7 @@ def graham_scan(points, show_hull_construction=False):
     return hull
 
 
-def show_hull(hull):
+def display(hull):
     for point in hull:
         print(point)
 
@@ -113,24 +111,24 @@ def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
     for s in sizes:
         total_time = 0.0
         for _ in range(3):
-            set_of_points = seed(s, 0, max(sizes) * 10)
+            points = seed(s, 0, max(sizes) * 10)
             start_time = time()
-            hull = graham_scan(set_of_points, False)
+            hull = graham_scan(points, False)
             total_time += time() - start_time
         print("size %d time: %0.5f" % (s, total_time / 3.0))
 
 
 def main():
-    set_of_points = seed(100)
+    points = seed(10)
     print("Points:")
-    print(set_of_points)
+    print(points)
     print()
 
-    hull = graham_scan(set_of_points, False)
+    hull = graham_scan(points, False)
     print("Convex Hull:")
-    show_hull(hull)
+    display(hull)
 
-    scatter_plot(set_of_points, hull)
+    scatter_plot(points, hull)
 
 
 if __name__ == "__main__":
