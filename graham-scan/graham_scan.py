@@ -21,6 +21,7 @@ from time import time
 
 # adds higher directory to python modules path
 import sys
+
 sys.path.append("..")
 
 from shared.scatter_plot import scatter_plot, seed
@@ -122,7 +123,8 @@ def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
 def main():
     set_of_points = seed(100)
     print("Points:")
-    print(set_of_points); print()
+    print(set_of_points)
+    print()
 
     hull = graham_scan(set_of_points, False)
     print("Convex Hull:")
