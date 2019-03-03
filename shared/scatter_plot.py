@@ -1,16 +1,15 @@
 from matplotlib import pyplot as plot
 from random import randint as rand
-from math import atan2
-from time import time
 
 
-def seed(count, min=0, max=1000):
+def seed(count, min=0, max=100):
     """Returns a list of random (x,y) coordinates to plot on the graph."""
-    return [[rand(min, max), rand(min, max)] for _ in range(count)]
+    return [(rand(min, max), rand(min, max)) for _ in range(count)]
 
 
-def display_scatter_plot():
+def display():
     """Displays the scatter plot."""
+    plot.title("Convex Hull")
     plot.show()
 
 
@@ -27,4 +26,4 @@ def scatter_plot(coordinates, convex_hull=None):
             c0 = convex_hull[i - 1]
             c1 = convex_hull[i]
             plot.plot((c0[0], c1[0]), (c0[1], c1[1]), "r")
-        display_scatter_plot()
+        display()
