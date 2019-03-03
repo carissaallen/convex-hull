@@ -65,3 +65,4 @@ A thank you to the individuals who created material I was able to use for inspir
 * [Determining if two consecutive line segments turn left or right](https://algorithmtutor.com/Computational-Geometry/Determining-if-two-consecutive-segments-turn-left-or-right/)
 * [Convex Hull Algorithms: Jarvis's March](https://algorithmtutor.com/Computational-Geometry/Convex-Hull-Algorithms-Jarvis-s-March/)
 * [Computational Geometry Lecture](http://jeffe.cs.illinois.edu/teaching/compgeom/notes/01-convexhull.pdf) by Jeff Erickson
+* [Computing Convex Hull in Python](https://startupnextdoor.com/computing-convex-hull-in-python/) by John Washam
