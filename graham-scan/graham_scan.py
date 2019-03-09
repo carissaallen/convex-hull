@@ -24,15 +24,15 @@ import sys
 sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 
-
-def quicksort(points):
-    """Sorts the set of points in order of increasing polar angle from the anchor point."""
+class ConvexHull(object): 
+    def quicksort(self, points):
+        """Sorts the set of points in order of increasing polar angle from the anchor point."""
     if len(points) <= 1:
         return points
     smaller, equal, larger = [], [], []
     pivot_angle = polar_angle(
-        points[randint(0, len(points) - 1)]
-    )  # select random pivot
+            points[randint(0, len(points) - 1)]
+            )  # select random pivot
     for p in points:
         angle = polar_angle(p)  # calculate current angle
         if angle < pivot_angle:
@@ -44,7 +44,7 @@ def quicksort(points):
     return quicksort(smaller) + sorted(equal, key=distance) + quicksort(larger)
 
 
-def polar_angle(p0, p1=None):
+def polar_angle(self, p0, p1=None):
     """Returns the polar angle (in radians) from points p0 to p1."""
     if p1 == None:
         p1 = anchor
@@ -53,7 +53,7 @@ def polar_angle(p0, p1=None):
     return atan2(y_span, x_span)
 
 
-def distance(p0, p1=None):
+def distance(self, p0, p1=None):
     """Returns the eculidean distance from p0 to p1."""
     if p1 == None:
         p1 = anchor
@@ -62,23 +62,23 @@ def distance(p0, p1=None):
     return y_span ** 2 + x_span ** 2
 
 
-def rotation(p1, p2, p3):
+def rotation(self p1, p2, p3):
     """Returns the rotation direction. 
 
-	If > 0, counter-clockwise.
-	If < 0, clockwise. 
-	If = 0, collinear."""
+    If > 0, counter-clockwise.
+    If < 0, clockwise. 
+    If = 0, collinear."""
     return (p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0])
 
 
-def graham_scan(points, show_hull_construction=False):
+    def graham_scan(self, points, show_hull_construction=False):
     """Returns the vertices that lie on the convex hull.
 
-	Input: a set of (x,y) coordinates. 
-	Output: a set of (x,y) coordinates on the convex hull.
-	When the 'show_hull_construction' flag is set to True, 
-	the scatter plot will show the construction of the convex hull
-	at each iteration."""
+    Input: a set of (x,y) coordinates. 
+    Output: a set of (x,y) coordinates on the convex hull.
+    When the 'show_hull_construction' flag is set to True, 
+    the scatter plot will show the construction of the convex hull
+    at each iteration."""
     global anchor  # point (x,y) with the smallest y value
 
     min_index = None
@@ -101,7 +101,7 @@ def graham_scan(points, show_hull_construction=False):
     return hull
 
 
-def display(hull):
+def display(self, hull):
     for point in hull:
         print(point)
 
@@ -124,7 +124,7 @@ def main():
     print(points)
     print()
 
-    hull = graham_scan(points, False)
+    hull = graham_scan(points, True)
     print("Convex Hull:")
     display(hull)
 
