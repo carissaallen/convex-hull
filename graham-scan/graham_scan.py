@@ -16,6 +16,7 @@ Graham's Scan Algorithm:
 """
 from matplotlib import pyplot as plot
 from random import randint
+from collections import namedtuple
 from math import atan2
 from time import time
 import sys
@@ -24,11 +25,18 @@ import sys
 sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 
+Point = namedtuple("Point", "x y")
+
 
 class ConvexHull(object):
+    points = []
+    hull_points = []
+
     def __init__(self):
         pass
 
+    def add(self, point):
+        self.points.append(point)
 
     def polar_angle(self, p0, p1=None):
         """Returns the polar angle (in radians) from points p0 to p1."""
@@ -38,7 +46,6 @@ class ConvexHull(object):
         x_span = p0[0] - p1[0]
         return atan2(y_span, x_span)
 
-
     def distance(self, p0, p1=None):
         """Returns the eculidean distance from p0 to p1."""
         if p1 == None:
@@ -47,13 +54,14 @@ class ConvexHull(object):
         x_span = p0[0] - p1[0]
         return y_span ** 2 + x_span ** 2
 
-
     def quicksort(self, points):
         """Sorts the set of points in order of increasing polar angle from the anchor point."""
         if len(points) <= 1:
             return points
         smaller, equal, larger = [], [], []
-        pivot_angle = self.polar_angle(points[randint(0, len(points) - 1)])  # select random pivot
+        pivot_angle = self.polar_angle(
+            points[randint(0, len(points) - 1)]
+        )  # select random pivot
         for p in points:
             angle = self.polar_angle(p)  # calculate current angle
             if angle < pivot_angle:
@@ -62,8 +70,11 @@ class ConvexHull(object):
                 equal.append(p)
             else:
                 larger.append(p)
-        return self.quicksort(smaller) + sorted(equal, key=self.distance) + self.quicksort(larger)
-
+        return (
+            self.quicksort(smaller)
+            + sorted(equal, key=self.distance)
+            + self.quicksort(larger)
+        )
 
     def rotation(self, p1, p2, p3):
         """Returns the rotation direction. 
@@ -73,8 +84,7 @@ class ConvexHull(object):
         If = 0, collinear."""
         return (p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0])
 
-
-    def graham_scan(self, points, show_hull_construction=False):
+    def graham_scan(self, show_hull_construction=False):
         """Returns the vertices that lie on the convex hull.
 
         Input: a set of (x,y) coordinates. 
@@ -83,6 +93,7 @@ class ConvexHull(object):
         the scatter plot will show the construction of the convex hull
         at each iteration."""
         global anchor  # point (x,y) with the smallest y value
+        points = self.points
 
         min_index = None
         for i, (x, y) in enumerate(points):
@@ -94,45 +105,46 @@ class ConvexHull(object):
         sorted_points = self.quicksort(points)
         del sorted_points[sorted_points.index(anchor)]
         # the 'anchor' point and the point with smallest polar angle will always be on hull
-        hull = [anchor, sorted_points[0]]
+        self.hull_points = [anchor, sorted_points[0]]
         for s in sorted_points[1:]:
-            while self.rotation(hull[-2], hull[-1], s) <= 0:
-                del hull[-1]  # backtrack
-            hull.append(s)
+            while self.rotation(self.hull_points[-2], self.hull_points[-1], s) <= 0:
+                del self.hull_points[-1]  # backtrack
+            self.hull_points.append(s)
             if show_hull_construction:
-                scatter_plot(points, hull)
-        return hull
+                scatter_plot(points, self.hull_points)
+        return self.hull_points
 
+    def get_hull_points(self):
+        if self.points and not self.hull_points:
+            self.graham_scan(False)
+        return self.hull_points
 
-    def display(self, hull):
-        for point in hull:
-            print(point)
-
+    def display(self):
+        scatter_plot(self.points, self.hull_points)
 
     def benchmark(self, sizes=[10, 100, 1000, 10000, 100000]):
         """Created as a performance metric."""
         for s in sizes:
             total_time = 0.0
             for _ in range(3):
-                points = seed(s, 0, max(sizes) * 10)
+                self.points = seed(s, 0, max(sizes) * 10)
                 start_time = time()
-                hull = self.graham_scan(points, False)
+                self.hull_points = self.graham_scan(False)
                 total_time += time() - start_time
             print("size %d time: %0.5f" % (s, total_time / 3.0))
 
 
-def main():
+def random():
+    """Returns points on the Convex Hull given a random data set."""
     ch = ConvexHull()
-    points = seed(10)
-    print("Points:")
-    print(points)
-    print()
+    for _ in range(10):
+        ch.add(Point(randint(-100, 100), randint(-100, 100)))
+    print("Convex Hull:", ch.get_hull_points())
+    ch.display()
 
-    hull = ch.graham_scan(points, True)
-    print("Convex Hull:")
-    ch.display(hull)
 
-    scatter_plot(points, hull)
+def main():
+    random()
 
 
 if __name__ == "__main__":
