@@ -77,23 +77,23 @@ class ConvexHull(object):
             self.hull_points.append(far_point)
             point = far_point
             if show_hull_construction:
-                scatter_plot(self.points, self.hull_points)
+                scatter_plot(points, self.hull_points)
 
     def get_hull_points(self):
         if self.points and not self.hull_points:
-            self.jarvis_march(True)
+            self.jarvis_march(False)
         return self.hull_points
 
     def display(self):
         # all points
         x = [p.x for p in self.points]
         y = [p.y for p in self.points]
-        plot.plot(x, y, marker="D", linestyle="None")
+        plot.plot(x, y, marker=".", linestyle="None")
 
         # hull points
         hx = [p.x for p in self.hull_points]
         hy = [p.y for p in self.hull_points]
-        plot.plot(hx, hy)
+        plot.plot(hx, hy, "g")
 
         plot.title("Convex Hull")
         plot.show()
@@ -104,13 +104,17 @@ def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
     pass
 
 
-def main():
+def random():
+    """Returns points on the Convex Hull given a random data set."""
     ch = ConvexHull()
     for _ in range(50):
         ch.add(Point(randint(-100, 100), randint(-100, 100)))
-
-    print("Covex Hull:", ch.get_hull_points())
+    print("Convex Hull:", ch.get_hull_points())
     ch.display()
+
+
+def main():
+    random()
 
 
 if __name__ == "__main__":
