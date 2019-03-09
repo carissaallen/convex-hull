@@ -62,7 +62,7 @@ def distance(self, p0, p1=None):
     return y_span ** 2 + x_span ** 2
 
 
-def rotation(self p1, p2, p3):
+def rotation(self, p1, p2, p3):
     """Returns the rotation direction. 
 
     If > 0, counter-clockwise.
