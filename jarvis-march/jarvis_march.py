@@ -105,7 +105,8 @@ class ConvexHull(object):
 
 
 def main():
-    datasets.square_data_set()
+    # datasets.square_data_set()
+    datasets.triangle_data_set()
     # datasets.circle_data_set()
     # datasets.hull_data_set()
 

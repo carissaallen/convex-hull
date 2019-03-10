@@ -7,7 +7,7 @@ from time import time
 import jarvis_march
 
 Point = namedtuple("Point", "x y")
-n_points = 100
+n_points = 10000
 
 
 def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
@@ -55,5 +55,23 @@ def hull_data_set():
         x = h + cos(theta) * r
         y = k + sin(theta) * r
         ch.add(Point(x, y))
+    print("Convex Hull:", ch.get_hull_points())
+    ch.display()
+
+
+def triangle_data_set():
+    """Input data for the Convex Hull program are coordinates of the points (random integers)
+    distributed inside a triangle."""
+    ch = jarvis_march.ConvexHull()
+    p1 = (1, 1)
+    p2 = (2, 4)
+    p3 = (5, 2)
+    for _ in range(n_points):
+        s, t = sorted([random(), random()])
+        (
+            s * p1[0] + (t - s) * p2[0] + (1 - t) * p3[0],
+            s * p1[1] + (t - s) * p2[1] + (1 - t) * p3[1],
+        )
+        ch.add(Point(s, t))
     print("Convex Hull:", ch.get_hull_points())
     ch.display()

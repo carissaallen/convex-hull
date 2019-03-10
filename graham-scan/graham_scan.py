@@ -25,6 +25,7 @@ sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 import datasets
 
+
 class ConvexHull(object):
     points = []
     hull_points = []
