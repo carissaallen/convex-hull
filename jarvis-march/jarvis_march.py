@@ -15,9 +15,7 @@ and adding it to the hull at each iteration. This algorithm resembles selection 
    initial starting point. 
 """
 from matplotlib import pyplot as plot
-from math import pi, sqrt, cos, sin
 from random import randint, random
-from collections import namedtuple
 from operator import itemgetter
 from time import time
 import sys
@@ -25,9 +23,7 @@ import sys
 # adds higher directory to python modules path
 sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
-
-Point = namedtuple("Point", "x y")
-n_points = 10000
+import datasets
 
 
 class ConvexHull(object):
@@ -38,6 +34,7 @@ class ConvexHull(object):
         pass
 
     def add(self, point):
+        """Appends a point to the input set of points."""
         self.points.append(point)
 
     def get_orientation(self, origin, p1, p2):
@@ -82,11 +79,17 @@ class ConvexHull(object):
                 scatter_plot(points, self.hull_points)
 
     def get_hull_points(self):
+        """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
             self.jarvis_march(False)
+            print("Number of points: {}").format(len(self.points))
+            print("Number of points on the convex hull: {}").format(
+                len(self.hull_points)
+            )
         return self.hull_points
 
     def display(self):
+        """Displays points on the scatter plot for visualization."""
         # all points
         x = [p.x for p in self.points]
         y = [p.y for p in self.points]
@@ -101,56 +104,10 @@ class ConvexHull(object):
         plot.show()
 
 
-def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
-    """Created as a performance metric."""
-    pass
-
-
-def square_data_set():
-    """Input data for the Convex Hull program are coordinates of the points (random integers)
-    uniformly distributed over a square-shaped interval."""
-    ch = ConvexHull()
-    for _ in range(n_points):
-        ch.add(Point(randint(-100, 100), randint(-100, 100)))
-    print("Convex Hull:", ch.get_hull_points())
-    ch.display()
-
-
-def point(h, k, r):
-    theta = random() * 2 * pi
-    return h + cos(theta)
-
-
-def circle_data_set():
-    """Input data for the Convex Hull program are coordinates of the points (random integers)
-    uniformly distributed inside a circle with radius R."""
-    ch = ConvexHull()
-    R = 5
-    for _ in range(n_points):
-        t = random() * 2 * pi
-        u = random() + random()
-        r = 2 - u
-        if not u > 1:
-            r = u
-        # r = R * sqrt(random())
-        xy = [r * cos(t), r * sin(t)]
-        ch.add(Point(xy[0], xy[1]))
-    print("Convex Hull:", ch.get_hull_points())
-    ch.display()
-
-
-def hull_data_set():
-    """Input data for the Convex Hull program are coordinates of the points (random integers)
-    distributed on the hull."""
-    ch = ConvexHull()
-    print("Convex Hull:", ch.get_hull_points())
-    ch.display()
-
-
 def main():
-    # square_data_set()
-    # circle_data_set()
-    hull_data_set()
+    datasets.square_data_set()
+    # datasets.circle_data_set()
+    # datasets.hull_data_set()
 
 
 if __name__ == "__main__":
