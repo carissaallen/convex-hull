@@ -15,7 +15,8 @@ and adding it to the hull at each iteration. This algorithm resembles selection 
    initial starting point. 
 """
 from matplotlib import pyplot as plot
-from random import randint
+from math import pi, sqrt, cos, sin
+from random import randint, random
 from collections import namedtuple
 from operator import itemgetter
 from time import time
@@ -26,6 +27,7 @@ sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 
 Point = namedtuple("Point", "x y")
+n_points = 10000
 
 
 class ConvexHull(object):
@@ -104,17 +106,47 @@ def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
     pass
 
 
-def random():
-    """Returns points on the Convex Hull given a random data set."""
+def square_data_set():
+    """Input data for the Convex Hull program are coordinates of the points (random integers)
+    uniformly distributed over a square-shaped interval."""
     ch = ConvexHull()
-    for _ in range(50):
+    for _ in range(n_points):
         ch.add(Point(randint(-100, 100), randint(-100, 100)))
     print("Convex Hull:", ch.get_hull_points())
     ch.display()
 
+def point(h, k, r): 
+    theta = random() * 2 * pi
+    return h + cos(theta)
+
+def circle_data_set():
+    """Input data for the Convex Hull program are coordinates of the points (random integers)
+    uniformly distributed inside a circle with radius R."""
+    ch = ConvexHull()
+    R = 5
+    for _ in range(n_points):
+        t = random() * 2 * pi
+        u = random() + random() 
+        r = 2-u 
+        if not u > 1:
+            r = u 
+        # r = R * sqrt(random())
+        xy = [r * cos(t), r * sin(t)]  
+        ch.add(Point(xy[0], xy[1]))
+    print("Convex Hull:", ch.get_hull_points())
+    ch.display()
+
+def hull_data_set():
+    """Input data for the Convex Hull program are coordinates of the points (random integers)
+    distributed on the hull."""
+    ch = ConvexHull()
+    print("Convex Hull:", ch.get_hull_points())
+    ch.display()
 
 def main():
-    random()
+    #square_data_set()
+    circle_data_set()
+    #hull_data_set()
 
 
 if __name__ == "__main__":
