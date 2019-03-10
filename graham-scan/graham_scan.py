@@ -16,7 +16,6 @@ Graham's Scan Algorithm:
 """
 from matplotlib import pyplot as plot
 from random import randint
-from collections import namedtuple
 from math import atan2
 from time import time
 import sys
@@ -24,9 +23,7 @@ import sys
 # adds higher directory to python modules path
 sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
-
-Point = namedtuple("Point", "x y")
-
+import datasets
 
 class ConvexHull(object):
     points = []
@@ -36,6 +33,7 @@ class ConvexHull(object):
         pass
 
     def add(self, point):
+        """Appends a point to the input set of points."""
         self.points.append(point)
 
     def polar_angle(self, p0, p1=None):
@@ -115,36 +113,24 @@ class ConvexHull(object):
         return self.hull_points
 
     def get_hull_points(self):
+        """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
             self.graham_scan(False)
+            print("Number of points: {}").format(len(self.points))
+            print("Number of points on the convex hull: {}").format(
+                len(self.hull_points)
+            )
         return self.hull_points
 
     def display(self):
+        """Displays points on the scatter plot for visualization."""
         scatter_plot(self.points, self.hull_points)
-
-    def benchmark(self, sizes=[10, 100, 1000, 10000, 100000]):
-        """Created as a performance metric."""
-        for s in sizes:
-            total_time = 0.0
-            for _ in range(3):
-                self.points = seed(s, 0, max(sizes) * 10)
-                start_time = time()
-                self.hull_points = self.graham_scan(False)
-                total_time += time() - start_time
-            print("size %d time: %0.5f" % (s, total_time / 3.0))
-
-
-def random():
-    """Returns points on the Convex Hull given a random data set."""
-    ch = ConvexHull()
-    for _ in range(10):
-        ch.add(Point(randint(-100, 100), randint(-100, 100)))
-    print("Convex Hull:", ch.get_hull_points())
-    ch.display()
 
 
 def main():
-    random()
+    datasets.square_data_set()
+    # datasets.circle_data_set()
+    # datasets.hull_data_set()
 
 
 if __name__ == "__main__":
