@@ -115,9 +115,11 @@ def square_data_set():
     print("Convex Hull:", ch.get_hull_points())
     ch.display()
 
-def point(h, k, r): 
+
+def point(h, k, r):
     theta = random() * 2 * pi
     return h + cos(theta)
+
 
 def circle_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -126,15 +128,16 @@ def circle_data_set():
     R = 5
     for _ in range(n_points):
         t = random() * 2 * pi
-        u = random() + random() 
-        r = 2-u 
+        u = random() + random()
+        r = 2 - u
         if not u > 1:
-            r = u 
+            r = u
         # r = R * sqrt(random())
-        xy = [r * cos(t), r * sin(t)]  
+        xy = [r * cos(t), r * sin(t)]
         ch.add(Point(xy[0], xy[1]))
     print("Convex Hull:", ch.get_hull_points())
     ch.display()
+
 
 def hull_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -143,10 +146,11 @@ def hull_data_set():
     print("Convex Hull:", ch.get_hull_points())
     ch.display()
 
+
 def main():
-    #square_data_set()
-    circle_data_set()
-    #hull_data_set()
+    # square_data_set()
+    # circle_data_set()
+    hull_data_set()
 
 
 if __name__ == "__main__":
