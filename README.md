@@ -12,7 +12,7 @@ Implement several convex hull algorithms, which will include:
 * _Divide-and-conquer_
 * _Prune-and-search_
 
-Compare the performance of each algorithm implemented, and create some visual representation of the algorithms/performance 
+Compare the performance of each algorithm implemented, and create some visual representation (i.e. scatter plots) of the algorithms/performance.
 
 ## Getting Started
 
