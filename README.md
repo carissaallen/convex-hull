@@ -50,6 +50,22 @@ Add additional notes about how to deploy this on a live system.
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
+## Tree
+```bash
+├── README.md
+├── graham-scan
+│   ├── __init__.py
+│   ├── datasets.py
+│   ├── graham_scan.py
+├── jarvis-march
+│   ├── __init__.py
+│   ├── datasets.py
+│   ├── jarvis_march.py
+└── shared
+    ├── __init__.py
+    └── scatter_plot.py
+```
+
 ## Authors
 
 * **Carissa Allen** - *Initial work* - [Convex Hull](https://github.com/carissaallen/convex-hull)
