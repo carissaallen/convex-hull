@@ -98,4 +98,4 @@ A thank you to the individuals who created material I was able to use for inspir
 * [Convex-Hull Algorithms](https://www.researchgate.net/publication/329265407_Convex-Hull_Algorithms_Implementation_Testing_and_Experimentation) by Neve Gamby and Jyrki Katajainen, primarily relied on to develop appropriate data sets as input to the algorithms implemented.
 * To brush up on my geometry, [Text Computational Geometry in C](http://crtl-i.com/PDF/comp_c.pdf) by Joseph O'Rourke.
 * [Convex Hull Applications](https://www.quora.com/What-are-the-real-life-applications-of-convex-hulls)
-* [Spatial extend of an outbreak in animal epidemics](https://www.pnas.org/content/110/11/4239.full)
+* [Spatial extent of an outbreak in animal epidemics](https://www.pnas.org/content/110/11/4239.full)
