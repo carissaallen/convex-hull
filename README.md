@@ -42,17 +42,19 @@ pip install matplotlib
 
 ## Deployment
 
-After installing any prerequisites listed above, follow these steps to run the program:
+1. After installing any prerequisites listed above, follow these steps to run the program:
 
-Git clone `https://github.com/carissaallen/convex-hull.git`
+    `git clone https://github.com/carissaallen/convex-hull.git`
 
-In your terminal, navigate to the correct directory (see *Tree* below) and run the program:
+2. In your terminal, navigate to the correct directory (see *Tree* below) and run the program:
 
-`python jarvis_march.py`
-
+Graham's scan:
 `python graham_scan.py`
 
-To exit the program, be sure to close the scatter plot that populates.
+Jarvis's march: 
+`python jarvis_march.py`
+
+To exit the program, close the scatter plot.
 
 ### Hull Construction
 
