@@ -54,11 +54,13 @@ In your terminal, navigate to the correct directory (see *Tree* below) and run t
 
 To exit the program, be sure to close the scatter plot that populates.
 
+### Hull Construction
+
 To view the construction of the convex hull:
 * At the top of _graham_scan.py_ and _jarvis_march.py_ (directly above the `ConvexHull` class) is a variable named `show_progress`.
 * If `show_progress = False` then the scatter plot will display the final convex hull boundary.
-* If to `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
-  * Note: you will need to close the scatter plot at each iteration to view hull's progress.
+* If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
+  * _Note: you will need to close the scatter plot at each iteration to view hull's progress._
 
 ## Tree
 ```bash
