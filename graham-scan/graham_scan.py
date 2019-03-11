@@ -25,6 +25,7 @@ sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 import datasets
 
+show_progress = False
 
 class ConvexHull(object):
     points = []
@@ -83,14 +84,13 @@ class ConvexHull(object):
         If = 0, collinear."""
         return (p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0])
 
-    def graham_scan(self, show_hull_construction=False):
+    def graham_scan(self, show_progress):
         """Returns the vertices that lie on the convex hull.
 
         Input: a set of (x,y) coordinates. 
         Output: a set of (x,y) coordinates on the convex hull.
-        When the 'show_hull_construction' flag is set to True, 
-        the scatter plot will show the construction of the convex hull
-        at each iteration."""
+        When the 'show_progress' flag is set to True, the scatter plot
+        will show the construction of the convex hull at each iteration."""
         global anchor  # point (x,y) with the smallest y value
         points = self.points
 
@@ -109,14 +109,14 @@ class ConvexHull(object):
             while self.rotation(self.hull_points[-2], self.hull_points[-1], s) <= 0:
                 del self.hull_points[-1]  # backtrack
             self.hull_points.append(s)
-            if show_hull_construction:
+            if show_progress:
                 scatter_plot(points, self.hull_points)
         return self.hull_points
 
     def get_hull_points(self):
         """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
-            self.graham_scan(False)
+            self.graham_scan(show_progress)
             print("Number of points: {}").format(len(self.points))
             print("Number of points on the convex hull: {}").format(
                 len(self.hull_points)

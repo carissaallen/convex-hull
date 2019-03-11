@@ -25,6 +25,7 @@ sys.path.append("..")
 from shared.scatter_plot import scatter_plot, seed
 import datasets
 
+show_progress = False
 
 class ConvexHull(object):
     points = []
@@ -45,8 +46,10 @@ class ConvexHull(object):
         )
         return difference
 
-    def jarvis_march(self, show_hull_construction=False):
-        """Computes the points that make up the convex hull."""
+    def jarvis_march(self, show_progress):
+        """Computes the points that make up the convex hull.
+        When the 'show_progress' flag is set to True, the scatter plot
+        will show the construction of the convex hull at each iteration."""
         points = self.points
 
         # get leftmost point
@@ -75,13 +78,13 @@ class ConvexHull(object):
                         far_point = p2
             self.hull_points.append(far_point)
             point = far_point
-            if show_hull_construction:
+            if show_progress:
                 scatter_plot(points, self.hull_points)
 
     def get_hull_points(self):
         """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
-            self.jarvis_march(False)
+            self.jarvis_march(show_progress)
             print("Number of points: {}").format(len(self.points))
             print("Number of points on the convex hull: {}").format(
                 len(self.hull_points)
