@@ -46,12 +46,12 @@ pip install matplotlib
 
     `git clone https://github.com/carissaallen/convex-hull.git`
 
-2. In your terminal, navigate to the correct directory (see *Tree* below) and run the program:
-    Graham's scan:
-    `python graham_scan.py`
+2. In your terminal, navigate to the correct directory (see *Tree* below) and run the program: <br>
+    Graham's scan: <br>
+    `python graham_scan.py` <br>
     
-    Jarvis's march:
-    `python jarvis_march.py`
+    Jarvis's march: <br>
+    `python jarvis_march.py` <br>
 
 To exit the program, close the scatter plot.
 
