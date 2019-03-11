@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things were needed to set up the development environment and how to install them.
-_Note: installation instructions based on macOS Mojave_
+_Note: installation instructions based on macOS Mojave._
 
 * Python 3.7.2
 * pip 
