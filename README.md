@@ -42,13 +42,23 @@ pip install matplotlib
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system.
+After installing any prerequisites listed above, follow these steps to run the program:
 
-## Built With
+Git clone `https://github.com/carissaallen/convex-hull.git`
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+In your terminal, navigate to the correct directory (see *Tree* below) and run the program:
+
+`python jarvis_march.py`
+
+`python graham_scan.py`
+
+To exit the program, be sure to close the scatter plot that populates.
+
+To view the construction of the convex hull:
+* At the top of _graham_scan.py_ and _jarvis_march.py_ (directly above the `ConvexHull` class) is a variable named `show_progress`.
+* If `show_progress = False` then the scatter plot will display the final convex hull boundary.
+* If to `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
+  * Note: you will need to close the scatter plot at each iteration to view hull's progress.
 
 ## Tree
 ```bash
