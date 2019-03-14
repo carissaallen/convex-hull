@@ -80,11 +80,11 @@ class JarvisMarch(object):
         """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
             self.jarvis_march(show_progress)
-            print("Number of points: {}").format(len(self.points))
-            print("Number of points on the convex hull: {}").format(
-                len(self.hull_points)
+            print("Input: {} points").format(len(self.points))
+            print("Convex hull: {} points").format(
+                len(self.hull_points)-1 # anchor point appears in list twice
             )
-        return self.hull_points
+        return self.hull_points[1:]
 
     def display(self):
         """Displays points on the scatter plot for visualization."""
