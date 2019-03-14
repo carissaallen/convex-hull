@@ -11,6 +11,7 @@ import graham_scan
 Point = namedtuple("Point", "x y")
 n_points = 10
 
+
 def benchmark(sizes=[10, 100, 1000, 10000, 100000]):
     """Created as a performance metric."""
     pass
@@ -21,17 +22,16 @@ def square_data_set():
     uniformly distributed over a square-shaped interval."""
     graham = graham_scan.GrahamScan()
     jarvis = jarvis_march.JarvisMarch()
-    seed(33) # use seed to generate repeatable random numbers
+    seed(33)  # use seed to generate repeatable random numbers
     for _ in range(n_points):
-        point = (Point(randint(-100, 100), randint(-100, 100)))
+        point = Point(randint(-100, 100), randint(-100, 100))
         graham.add(point)
         jarvis.add(point)
     print("Convex Hull:", graham.get_hull_points())
-    graham.display() 
+    graham.display()
     print("Convex Hull:", jarvis.get_hull_points())
-    jarvis.display() 
-        
-        
+    jarvis.display()
+
 
 def circle_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -47,13 +47,14 @@ def circle_data_set():
             r = u
         # r = R * sqrt(random())
         xy = [r * cos(t), r * sin(t)]
-        point = (Point(xy[0], xy[1]))
+        point = Point(xy[0], xy[1])
         graham.add(point)
         jarvis.add(point)
     print("Convex Hull:", graham.get_hull_points())
-    graham.display() 
+    graham.display()
     print("Convex Hull:", jarvis.get_hull_points())
-    jarvis.display() 
+    jarvis.display()
+
 
 def hull_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -68,6 +69,7 @@ def hull_data_set():
         y = k + sin(theta) * r
         points.append(Point(x, y))
     return points
+
 
 def triangle_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -89,7 +91,7 @@ def triangle_data_set():
 def main():
     # square_data_set()
     circle_data_set()
-    
+
 
 if __name__ == "__main__":
     main()
