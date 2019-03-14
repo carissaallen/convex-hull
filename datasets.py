@@ -36,7 +36,8 @@ def square_data_set():
 def circle_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
     uniformly distributed inside a circle."""
-    points = []
+    graham = graham_scan.GrahamScan()
+    jarvis = jarvis_march.JarvisMarch()
     # R = 5
     for _ in range(n_points):
         t = random() * 2 * pi
@@ -46,8 +47,13 @@ def circle_data_set():
             r = u
         # r = R * sqrt(random())
         xy = [r * cos(t), r * sin(t)]
-        points.append(Point(xy[0], xy[1]))
-    return points
+        point = (Point(xy[0], xy[1]))
+        graham.add(point)
+        jarvis.add(point)
+    print("Convex Hull:", graham.get_hull_points())
+    graham.display() 
+    print("Convex Hull:", jarvis.get_hull_points())
+    jarvis.display() 
 
 def hull_data_set():
     """Input data for the Convex Hull program are coordinates of the points (random integers)
@@ -81,7 +87,8 @@ def triangle_data_set():
 
 
 def main():
-    square_data_set()    
+    # square_data_set()
+    circle_data_set()
     
 
 if __name__ == "__main__":
