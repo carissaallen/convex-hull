@@ -18,16 +18,11 @@ from matplotlib import pyplot as plot
 from random import randint
 from math import atan2
 from time import time
-import sys
-
-# adds higher directory to python modules path
-sys.path.append("..")
-from shared.scatter_plot import scatter_plot, seed
-import datasets
+from scatter_plot import scatter_plot
 
 show_progress = False
 
-class ConvexHull(object):
+class GrahamScan(object):
     points = []
     hull_points = []
 
@@ -103,7 +98,7 @@ class ConvexHull(object):
         anchor = points[min_index]
         sorted_points = self.quicksort(points)
         del sorted_points[sorted_points.index(anchor)]
-        # the 'anchor' point and the point with smallest polar angle will always be on hull
+        # the 'anchor' point and the point with smallest polar angle will always be on the hull
         self.hull_points = [anchor, sorted_points[0]]
         for s in sorted_points[1:]:
             while self.rotation(self.hull_points[-2], self.hull_points[-1], s) <= 0:
@@ -126,13 +121,3 @@ class ConvexHull(object):
     def display(self):
         """Displays points on the scatter plot for visualization."""
         scatter_plot(self.points, self.hull_points)
-
-
-def main():
-    datasets.square_data_set()
-    # datasets.circle_data_set()
-    # datasets.hull_data_set()
-
-
-if __name__ == "__main__":
-    main()
