@@ -18,16 +18,11 @@ from matplotlib import pyplot as plot
 from random import randint, random
 from operator import itemgetter
 from time import time
-import sys
-
-# adds higher directory to python modules path
-sys.path.append("..")
-from shared.scatter_plot import scatter_plot, seed
-import datasets
+from scatter_plot import scatter_plot
 
 show_progress = False
 
-class ConvexHull(object):
+class JarvisMarch(object):
     points = []
     hull_points = []
 
@@ -105,14 +100,3 @@ class ConvexHull(object):
 
         plot.title("Convex Hull")
         plot.show()
-
-
-def main():
-    # datasets.square_data_set()
-    datasets.triangle_data_set()
-    # datasets.circle_data_set()
-    # datasets.hull_data_set()
-
-
-if __name__ == "__main__":
-    main()
