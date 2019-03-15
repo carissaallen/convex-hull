@@ -4,6 +4,7 @@ from collections import namedtuple
 from operator import itemgetter
 from time import time
 
+
 import jarvis_march
 import graham_scan
 
@@ -21,7 +22,7 @@ def square_data_set(algorithm, n_points):
     uniformly distributed over a square-shaped interval."""
     seed(50)  # use seed to generate repeatable random numbers
     for _ in range(n_points):
-        point = Point(randint(-100, 100), randint(-100, 100))
+        point = Point(randint(-n_points, n_points), randint(-n_points, n_points))
         algorithm.add(point)
 
 
