@@ -18,12 +18,16 @@ from matplotlib import pyplot as plot
 from random import randint
 from math import atan2
 from time import time
-from scatter_plot import scatter_plot
+from scatter_plot import scatter_plot, draw_scatter_plot
 
 
 class GrahamScan(object):
     points = []
     hull_points = []
+
+    # scatter plot specifications
+    title = "Graham Scan: Convex Hull"
+    color = "g"
 
     def __init__(self):
         pass
@@ -104,7 +108,8 @@ class GrahamScan(object):
                 del self.hull_points[-1]  # backtrack
             self.hull_points.append(s)
             if show_progress:
-                scatter_plot(points, self.hull_points)
+                draw_scatter_plot(points, self.hull_points, self.color, self.title)
+        plot.close()
         return self.hull_points
 
     def get_hull_points(self, show_progress):
@@ -117,4 +122,4 @@ class GrahamScan(object):
 
     def display(self):
         """Displays points on the scatter plot for visualization."""
-        scatter_plot(self.points, self.hull_points)
+        scatter_plot(self.points, self.hull_points, self.color, self.title)
