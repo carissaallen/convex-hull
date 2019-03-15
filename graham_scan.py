@@ -20,8 +20,6 @@ from math import atan2
 from time import time
 from scatter_plot import scatter_plot
 
-show_progress = False
-
 
 class GrahamScan(object):
     points = []
@@ -109,7 +107,7 @@ class GrahamScan(object):
                 scatter_plot(points, self.hull_points)
         return self.hull_points
 
-    def get_hull_points(self):
+    def get_hull_points(self, show_progress):
         """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
             self.graham_scan(show_progress)
