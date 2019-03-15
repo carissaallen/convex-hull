@@ -47,6 +47,7 @@ pip install matplotlib
     `git clone https://github.com/carissaallen/convex-hull.git`
 
 2. To run the program from your terminal: <br>
+
     `python main.py`
 
 To exit the program, close the scatter plot.
