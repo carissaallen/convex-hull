@@ -16,7 +16,7 @@ Compare the performance of each algorithm implemented, and create some visual re
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
@@ -40,43 +40,34 @@ Install [matplotlib](https://matplotlib.org/api/pyplot_api.html#module-matplotli
 pip install matplotlib
 ``` 
 
-## Deployment
+### Run
 
 1. After installing any prerequisites listed above, follow these steps to run the program:
 
     `git clone https://github.com/carissaallen/convex-hull.git`
 
-2. In your terminal, navigate to the correct directory (see *Tree* below) and run the program: <br>
-    Graham's scan: <br>
-    `python graham_scan.py` <br>
-    
-    Jarvis's march: <br>
-    `python jarvis_march.py` <br>
+2. To run the program from your terminal: <br>
+    `python main.py`
 
 To exit the program, close the scatter plot.
 
 ### Hull Construction
 
 To view the construction of the convex hull:
-* At the top of each of the main files, _graham_scan.py_ and _jarvis_march.py_, (directly above the `ConvexHull` class) is a variable named `show_progress`.
+* Naviate to the _main.py_ file. In the `main` method:
 * If `show_progress = False` then the scatter plot will only display the final convex hull boundary.
 * If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
   * _Note: you will need to close the scatter plot at each iteration to view hull's progress._
 
 ## Tree
 ```bash
+├── LICENSE
 ├── README.md
-├── graham-scan
-│   ├── __init__.py
-│   ├── datasets.py
-│   ├── graham_scan.py
-├── jarvis-march
-│   ├── __init__.py
-│   ├── datasets.py
-│   ├── jarvis_march.py
-└── shared
-    ├── __init__.py
-    └── scatter_plot.py
+├── datasets.py
+├── graham_scan.py
+├── jarvis_march.py
+├── main.py
+└── scatter_plot.py
 ```
 
 ## Authors
