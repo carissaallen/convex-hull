@@ -73,7 +73,7 @@ class GrahamScan(object):
     def rotation(self, p1, p2, p3):
         """Returns the rotation direction. 
 
-        If > 0, counter-clockwise.
+        If > 0, counterclockwise.
         If < 0, clockwise. 
         If = 0, collinear."""
         return (p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0])
