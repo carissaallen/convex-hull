@@ -26,11 +26,11 @@ These instructions will get you a copy of the project up and running on your loc
 What things were needed to set up the development environment and how to install them.
 _Note: installation instructions based on macOS Mojave._
 
-* Python 3.7.2
-* pip 
-* matplotlib
+* [Python 3.7.2](https://www.python.org/downloads/)
+* [pip](https://pip.pypa.io/en/stable/installing/)
+* [matplotlib](https://matplotlib.org/api/pyplot_api.html#module-matplotlib.pyplot)
 
-Install [pip](https://pip.pypa.io/en/stable/installing/):
+Install pip:
 ```
 curl https://bootstrap.pypa.io/gpython get-pip.pyet-pip.py -o get-pip.py
 ```
@@ -38,7 +38,7 @@ curl https://bootstrap.pypa.io/gpython get-pip.pyet-pip.py -o get-pip.py
 python get-pip.py
 ```
 
-Install [matplotlib](https://matplotlib.org/api/pyplot_api.html#module-matplotlib.pyplot):
+Install matplotlib:
 ```
 pip install matplotlib
 ``` 
