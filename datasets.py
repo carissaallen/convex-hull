@@ -29,6 +29,8 @@ def square_data_set(algorithm, n_points):
 def circle_data_set(algorithm, n_points):
     """Input data for the Convex Hull program are coordinates of the points (random integers)
     uniformly distributed inside a circle."""
+    points = []
+    # fp = open("input.txt", "w")
     R = 10
     for _ in range(n_points):
         t = random() * 2 * pi
@@ -37,12 +39,16 @@ def circle_data_set(algorithm, n_points):
         y = r * sin(t)
         point = Point(x, y)
         algorithm.add(point)
-    print(algorithm.points)
+        points.append(point)
+    # fp.writelines(" ".join(map(str, points)))
+    # fp.close()
+    return points
 
 
 def hull_data_set(algorithm, n_points):
     """Input data for the Convex Hull program are coordinates of the points (random integers)
     distributed on the hull."""
+    points = []
     h = 1
     k = 2
     r = 5
@@ -52,11 +58,14 @@ def hull_data_set(algorithm, n_points):
         y = k + sin(theta) * r
         point = Point(x, y)
         algorithm.add(point)
+        points.append(point)
+    return points
 
 
 def triangle_data_set(algorithm, n_points):
     """Input data for the Convex Hull program are coordinates of the points (random integers)
     distributed inside a triangle."""
+    points = []
     p1 = (1, 1)
     p2 = (2, 4)
     p3 = (5, 2)
@@ -68,3 +77,5 @@ def triangle_data_set(algorithm, n_points):
         )
         point = Point(s, t)
         algorithm.add(point)
+        points.append(point)
+    return points
