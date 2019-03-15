@@ -42,7 +42,7 @@ def main():
     # size of the set of input points
     input_size = 100
 
-    # set to 'True' for display convex hull construction
+    # set to 'True' to display convex hull construction
     show_progress = False
 
     normal_dataset = 1  # points distributed over square-shaped interval
