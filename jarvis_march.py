@@ -18,12 +18,16 @@ from matplotlib import pyplot as plot
 from random import randint, random
 from operator import itemgetter
 from time import time
-from scatter_plot import scatter_plot
+from scatter_plot import scatter_plot, draw_scatter_plot
 
 
 class JarvisMarch(object):
     points = []
     hull_points = []
+
+    # scatter plot specifications
+    title = "Jarvis March: Convex Hull"
+    color = "b"
 
     def __init__(self):
         pass
@@ -73,7 +77,8 @@ class JarvisMarch(object):
             self.hull_points.append(far_point)
             point = far_point
             if show_progress:
-                scatter_plot(points, self.hull_points)
+                draw_scatter_plot(points, self.hull_points, "jarvis")
+        plot.close()
 
     def get_hull_points(self, show_progress):
         """Returns points on the convex hull, displaying input and output points."""
@@ -95,7 +100,7 @@ class JarvisMarch(object):
         # hull points
         hx = [p.x for p in self.hull_points]
         hy = [p.y for p in self.hull_points]
-        plot.plot(hx, hy, "g")
+        plot.plot(hx, hy, self.color)
 
-        plot.title("Convex Hull")
+        plot.title(self.title)
         plot.show()
