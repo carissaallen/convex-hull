@@ -20,7 +20,6 @@ from operator import itemgetter
 from time import time
 from scatter_plot import scatter_plot
 
-show_progress = False
 
 class JarvisMarch(object):
     points = []
@@ -76,13 +75,13 @@ class JarvisMarch(object):
             if show_progress:
                 scatter_plot(points, self.hull_points)
 
-    def get_hull_points(self):
+    def get_hull_points(self, show_progress):
         """Returns points on the convex hull, displaying input and output points."""
         if self.points and not self.hull_points:
             self.jarvis_march(show_progress)
             print("Input: {} points").format(len(self.points))
             print("Convex hull: {} points").format(
-                len(self.hull_points)-1 # anchor point appears in list twice
+                len(self.hull_points) - 1  # anchor point appears in list twice
             )
         return self.hull_points[1:]
 
