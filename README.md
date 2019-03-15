@@ -45,15 +45,15 @@ pip install matplotlib
 
 ### Run
 
-1. After installing any prerequisites listed above, follow these steps to run the program:
+After installing any prerequisites listed above, follow these steps to run the program:
+
+1. Clone the project to your local machine.<br>
 
     `git clone https://github.com/carissaallen/convex-hull.git`
 
-2. To run the program from your terminal: <br>
+2. From your terminal, enter the following command: <br>
 
     `python main.py`
-
-To exit the program, close the scatter plot.
 
 ### Hull Construction
 
