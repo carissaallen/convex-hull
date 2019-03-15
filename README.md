@@ -58,7 +58,7 @@ To view the construction of the convex hull:
 * Naviate to the _main.py_ file. In the `main` method:
 * If `show_progress = False` then the scatter plot will only display the final convex hull boundary.
 * If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
-  * _Note: you will need to close the scatter plot at each iteration to view hull's progress._
+  :turtle: _Note: this is pretty slow._ 
 
 ## Tree
 ```bash
@@ -80,7 +80,7 @@ To view the construction of the convex hull:
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-A thank you to the individuals who created material I was able to use for inspiration, understanding and implementing technical details, and credit to any other resources that contributed to the making of my project. :clap:
+A thank you to the individuals who created material I was able to use for inspiration, understanding and implementing technical details, and credit to any other resources that contributed to the making of my project. 👏🏻
 
 * Brian Faure for creating a [tutorial](https://steemit.com/python/@bfaure/graham-scan-algorithm-background-and-python-code) for Graham's Scan, which was used to learn about `matplotlib` to create the visual representation of the convex hull, and for some implementation details.
 * [Determining if two consecutive line segments turn left or right](https://algorithmtutor.com/Computational-Geometry/Determining-if-two-consecutive-segments-turn-left-or-right/)
