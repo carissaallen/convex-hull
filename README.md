@@ -6,11 +6,14 @@ Final research project for the graduate-level class, Algorithm Design and Analys
 * After completing their research, students are responsible for writing a 7-10 page paper which is to be submitted along with their source code.
 
 ## Topic
-Implement several convex hull algorithms, which will include:
+Implement convex hull algorithms, which will include:
 * Graham's scan
-* Jarvis's March (Gift-Wrapping) 
+* Jarvis's March (Gift-Wrapping)
+
+To implement in future work:
 * _Divide-and-conquer_
 * _Prune-and-search_
+* _Chan's algorithm_
 
 Compare the performance of each algorithm implemented, and create some visual representation (i.e. scatter plots) of the algorithms/performance.
 
