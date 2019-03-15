@@ -2,7 +2,7 @@ from matplotlib import pyplot as plot
 from random import randint as rand
 
 
-def seed(count, min=0, max=100):
+def seed(count, min=0, max=100000):
     """Returns a list of random (x,y) coordinates to plot on the graph."""
     return [(rand(min, max), rand(min, max)) for _ in range(count)]
 
