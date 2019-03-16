@@ -8,7 +8,7 @@ Final research project for the graduate-level class, Algorithm Design and Analys
 ## Topic
 Implement convex hull algorithms, which will include:
 * Graham's scan
-* Jarvis's March (Gift-Wrapping)
+* Jarvis's march (gift-wrapping)
 
 To implement in future work:
 * _Divide-and-conquer_
@@ -58,10 +58,11 @@ After installing any prerequisites listed above, follow these steps to run the p
 ### Hull Construction
 
 To view the construction of the convex hull:
-* Naviate to the _main.py_ file. In the `main` method:
+* Navigate to the _main.py_ file. In the `main` method:
 * If `show_progress = False` then the scatter plot will only display the final convex hull boundary.
-* If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed.
-  :turtle: _Note: this is pretty slow._ 
+* If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed. <br>
+
+  _Note: keep the input size small, this is pretty slow._ :turtle: 
 
 ## Tree
 ```bash
@@ -85,6 +86,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 A thank you to the individuals who created material I was able to use for inspiration, understanding and implementing technical details, and credit to any other resources that contributed to the making of my project. 👏🏻
 
+* _Introduction to Algorithms 3rd Edition_ by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
 * Brian Faure for creating a [tutorial](https://steemit.com/python/@bfaure/graham-scan-algorithm-background-and-python-code) for Graham's Scan, which was used to learn about `matplotlib` to create the visual representation of the convex hull, and for some implementation details.
 * [Determining if two consecutive line segments turn left or right](https://algorithmtutor.com/Computational-Geometry/Determining-if-two-consecutive-segments-turn-left-or-right/)
 * [Convex Hull Algorithms: Jarvis's March](https://algorithmtutor.com/Computational-Geometry/Convex-Hull-Algorithms-Jarvis-s-March/)
@@ -95,3 +97,4 @@ A thank you to the individuals who created material I was able to use for inspir
 * [Convex Hull Applications](https://www.quora.com/What-are-the-real-life-applications-of-convex-hulls)
 * [Spatial Extent of an Outbreak in Animal Epidemics](https://www.pnas.org/content/110/11/4239.full)
 * [Hand Gesture Recognition Based on Convex Defect Detection](https://pdfs.semanticscholar.org/ee87/b0b46ed7a31ef90ee672c08a22e028e4537c.pdf)
+* [The Convex Hull of a Finite Planar Set](http://www.math.ucsd.edu/~ronspubs/72_10_convex_hull.pdf) by R.L. Graham (1972)
