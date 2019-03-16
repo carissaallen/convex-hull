@@ -5,6 +5,11 @@ import graham_scan
 import jarvis_march
 
 
+def add(algorithm, points):
+    for p in points:
+        algorithm.add(p)
+
+        
 def run_algorithms(dataset, size, show_progress):
     graham = graham_scan.GrahamScan()
     jarvis = jarvis_march.JarvisMarch()
@@ -50,11 +55,6 @@ def run_algorithms(dataset, size, show_progress):
     print("Convex Hull:", jarvis.get_hull_points(show_progress))
     graham.display()
     jarvis.display()
-
-
-def add(algorithm, points):
-    for p in points:
-        algorithm.add(p)
 
 
 def main():
