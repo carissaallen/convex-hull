@@ -8,7 +8,7 @@ Final research project for the graduate-level class, Algorithm Design and Analys
 ## Topic
 Implement convex hull algorithms, which will include:
 * Graham's scan
-* Jarvis's March (Gift-Wrapping)
+* Jarvis's march (gift-wrapping)
 
 To implement in future work:
 * _Divide-and-conquer_
