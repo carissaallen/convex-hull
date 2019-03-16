@@ -25,6 +25,7 @@ def circle(algorithm, n_points):
     """Input data for the Convex Hull program are coordinates of the points (random integers)
     uniformly distributed inside a circle."""
     points = []
+    fp = open("input.txt", "w")
     R = 10
     for _ in range(n_points):
         t = random() * 2 * pi
@@ -34,6 +35,9 @@ def circle(algorithm, n_points):
         point = Point(x, y)
         algorithm.add(point)
         points.append(point)
+    # need to write to file without converting to string
+    fp. writelines(" ".join(map(str, points)))
+    fp.close()
     return points
 
 
