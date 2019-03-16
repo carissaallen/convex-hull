@@ -61,6 +61,7 @@ To view the construction of the convex hull:
 * Naviate to the _main.py_ file. In the `main` method:
 * If `show_progress = False` then the scatter plot will only display the final convex hull boundary.
 * If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed. <br>
+
   _Note: keep the input size small, this is pretty slow._ :turtle: 
 
 ## Tree
