@@ -58,7 +58,7 @@ After installing any prerequisites listed above, follow these steps to run the p
 ### Hull Construction
 
 To view the construction of the convex hull:
-* Naviate to the _main.py_ file. In the `main` method:
+* Navigate to the _main.py_ file. In the `main` method:
 * If `show_progress = False` then the scatter plot will only display the final convex hull boundary.
 * If `show_progress = True` then the scatter plot will show the hull's progress as the boundary is constructed. <br>
 
