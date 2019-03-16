@@ -77,8 +77,8 @@ class JarvisMarch(object):
             self.hull_points.append(far_point)
             point = far_point
             if show_progress:
-                draw_scatter_plot(points, self.hull_points, "jarvis")
-        plot.close()
+                draw_scatter_plot(points, self.hull_points, self.color, self.title)
+                plot.close()
 
     def get_hull_points(self, show_progress):
         """Returns points on the convex hull, displaying input and output points."""
