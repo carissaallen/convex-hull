@@ -95,3 +95,4 @@ A thank you to the individuals who created material I was able to use for inspir
 * [Convex Hull Applications](https://www.quora.com/What-are-the-real-life-applications-of-convex-hulls)
 * [Spatial Extent of an Outbreak in Animal Epidemics](https://www.pnas.org/content/110/11/4239.full)
 * [Hand Gesture Recognition Based on Convex Defect Detection](https://pdfs.semanticscholar.org/ee87/b0b46ed7a31ef90ee672c08a22e028e4537c.pdf)
+* [The Convex Hull of a Finite Planar Set](http://www.math.ucsd.edu/~ronspubs/72_10_convex_hull.pdf) by R.L. Graham (1972)
