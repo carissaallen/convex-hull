@@ -11,7 +11,7 @@ Graham's Scan Algorithm:
 4. Iterate over each point in the sorted list; each time we find a vertex
    at which we make a nonleft (CW) turn, pop the vertex from the stack (i.e.,
    remove from the convex hull). (Note: by checking for a nonleft turn instead of a right turn, 
-   this test precludes the possibility of a straiht angle at a vertex.) After popping all
+   this test precludes the possibility of a straight angle at a vertex.) After popping all
    vertices that have nonleft turns when heading toward point p, push p on to the stack.
 """
 from matplotlib import pyplot as plot
