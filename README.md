@@ -75,6 +75,9 @@ To view the construction of the convex hull:
 └── scatter_plot.py
 ```
 
+## Future Work
+I am currently working on improving the input data set, and the timing mechanism used to analyze empirical performance of the algorithms. Once these areas are improved, I intend to implement additional algorithms for analysis.
+
 ## Authors
 
 * **Carissa Allen** - *Initial work* - [Convex Hull](https://github.com/carissaallen/convex-hull)
